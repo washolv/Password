@@ -22,22 +22,25 @@ public class ValidatorControllerTest {
 
     @Test
     void shouldReturnValidPassword() throws Exception {
+        String password = "{\"password\":\"AbTp9!fok\"}";
         when(passwordPort.validatePassword("AbTp9!fok")).thenReturn(true);
-        this.callPasswordValidator("AbTp9!fok").
+        this.callPasswordValidator(password).
                 andExpect(MockMvcResultMatchers.jsonPath("$")
                         .value(true));
     }
 
     @Test
     void shouldReturnInvalidPassword() throws Exception {
-        this.callPasswordValidator("aa").
+        String password = "{\"password\":\"abc\"}";
+        this.callPasswordValidator(password).
                 andExpect(MockMvcResultMatchers.jsonPath("$")
                         .value(false));
     }
 
     ResultActions callPasswordValidator(String password) throws Exception {
-        return mockMvc.perform(MockMvcRequestBuilders.post("/validate").content(
-                password
+        return mockMvc.perform(MockMvcRequestBuilders.post("/validate")
+                .contentType("application/json")
+                .content(password
         ));
     }
 

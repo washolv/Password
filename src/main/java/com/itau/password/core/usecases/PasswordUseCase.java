@@ -1,8 +1,8 @@
 package com.itau.password.core.usecases;
 
-import com.itau.password.core.passwordrules.*;
 import com.itau.password.core.ports.Password;
-import com.itau.password.core.ports.PasswordRule;
+import com.itau.password.core.rules.PasswordRule;
+import com.itau.password.core.rules.impl.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

@@ -1,5 +1,6 @@
 package com.itau.password.adapters.controller;
 
+import com.itau.password.adapters.dto.PasswordRequest;
 import com.itau.password.core.ports.Password;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,8 @@ public class PasswordController {
         this.passwordPort = passwordPort;
     }
 
-    @PostMapping("/validate")
-    ResponseEntity<Boolean> validatePassword(@RequestBody String password){
-       return ResponseEntity.ok(passwordPort.validatePassword(password));
+@PostMapping("/validate")
+    ResponseEntity<Boolean> validatePassword(@RequestBody PasswordRequest password){
+       return ResponseEntity.ok(passwordPort.validatePassword(password.getPassword()));
     }
 }

@@ -1,6 +1,6 @@
-package com.itau.password.core.passwordrules;
+package com.itau.password.core.rules.impl;
 
-import com.itau.password.core.ports.PasswordRule;
+import com.itau.password.core.rules.PasswordRule;
 
 public class CapitalLetterRule implements PasswordRule {
     @Override
