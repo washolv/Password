@@ -21,8 +21,8 @@ public class PasswordUseCaseTest {
     }
 
     @Test
-    void shouldReturnFalseWhenPasswordHasOneDigit(){
-        Boolean response = passwordUseCase.validatePassword("a");
+    void shouldReturnFalseWhenPasswordNotHaveMinLength(){
+        Boolean response = passwordUseCase.validatePassword("AbTp9!fo");
         assertEquals("Invalid", false, response);
     }
 
